@@ -6,7 +6,7 @@
   <title>Plan Your Visit | Khiva</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ===== VISIT PAGE STYLES ===== */
+    /* Visit page specific styles */
     .visit-hero {
       position: relative;
       min-height: 40vh;
@@ -21,20 +21,16 @@
       border-radius: 0 0 40px 40px;
       margin-top: 60px;
     }
-    
     .visit-hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
       text-shadow: 0 4px 30px rgba(0,0,0,0.3);
     }
-    
     .visit-hero p {
       font-size: 1.1rem;
       opacity: 0.9;
     }
-    
-    /* Quick Stats */
     .visit-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -45,7 +41,6 @@
       position: relative;
       z-index: 2;
     }
-    
     .visit-stat {
       background: rgba(255,255,255,0.2);
       backdrop-filter: blur(20px);
@@ -55,24 +50,25 @@
       text-align: center;
       transition: all 0.3s ease;
     }
-    
     .visit-stat:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 30px rgba(0,0,0,0.1);
     }
-    
     .visit-stat .number {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 700;
       color: #b45a2e;
     }
-    
     .visit-stat .label {
       font-size: 0.75rem;
       color: #4a4540;
     }
-    
-    /* Main Grid */
+    body.dark-mode .visit-stat .number {
+      color: #d48c6a;
+    }
+    body.dark-mode .visit-stat .label {
+      color: #c4c0ba;
+    }
     .visit-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -81,39 +77,36 @@
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    
     .visit-card {
       background: rgba(255,255,255,0.2);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 20px;
       padding: 1.5rem;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.2, 1);
+      transition: all 0.4s ease;
     }
-    
     .visit-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
-    
     .visit-card .card-icon {
       font-size: 2.2rem;
       display: block;
       margin-bottom: 0.3rem;
     }
-    
     .visit-card h3 {
       font-size: 1.1rem;
       margin-bottom: 0.6rem;
       color: #1d1b1a;
     }
-    
+    body.dark-mode .visit-card h3 {
+      color: #f0ece6;
+    }
     .visit-card ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    
     .visit-card ul li {
       padding: 0.4rem 0;
       border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -123,46 +116,49 @@
       color: #4a4540;
       font-size: 0.85rem;
     }
-    
+    body.dark-mode .visit-card ul li {
+      color: #c4c0ba;
+      border-bottom-color: rgba(255,255,255,0.05);
+    }
     .visit-card ul li:last-child {
       border-bottom: none;
     }
-    
     .visit-card ul li .emoji {
       font-size: 1rem;
       min-width: 1.8rem;
     }
-    
-    /* Checklist */
+
+    /* Checklist (same as before but using shared styles) */
     .checklist-section {
       max-width: 1100px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    
     .checklist-section .section-title {
       text-align: center;
       margin-bottom: 1.5rem;
     }
-    
     .checklist-section .section-title h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       color: #1d1b1a;
     }
-    
+    body.dark-mode .checklist-section .section-title h2 {
+      color: #f0ece6;
+    }
     .checklist-section .section-title p {
       color: #4a4540;
       font-size: 0.9rem;
       opacity: 0.8;
     }
-    
+    body.dark-mode .checklist-section .section-title p {
+      color: #c4c0ba;
+    }
     .checklist-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.8rem;
     }
-    
     .checklist-item {
       background: rgba(255,255,255,0.2);
       backdrop-filter: blur(20px);
@@ -176,12 +172,14 @@
       transition: all 0.3s ease;
       user-select: none;
     }
-    
+    body.dark-mode .checklist-item {
+      background: rgba(40,40,40,0.6);
+      border-color: rgba(255,255,255,0.05);
+    }
     .checklist-item:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
-    
     .checklist-item .check-box {
       width: 24px;
       height: 24px;
@@ -196,27 +194,57 @@
       color: transparent;
       font-weight: 700;
     }
-    
     .checklist-item.checked .check-box {
       background: #b45a2e;
       color: white;
     }
-    
+    body.dark-mode .checklist-item .check-box {
+      border-color: #d48c6a;
+    }
+    body.dark-mode .checklist-item.checked .check-box {
+      background: #d48c6a;
+    }
     .checklist-item .check-text {
       font-size: 0.9rem;
       color: #1d1b1a;
       transition: all 0.3s ease;
     }
-    
+    body.dark-mode .checklist-item .check-text {
+      color: #f0ece6;
+    }
     .checklist-item.checked .check-text {
       text-decoration: line-through;
       opacity: 0.4;
     }
-    
     .checklist-item .check-emoji {
       font-size: 1.2rem;
     }
-    
+    .checklist-controls {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .checklist-control {
+      background: rgba(180,90,46,0.12);
+      color: #b45a2e;
+      border: 1px solid rgba(180,90,46,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+    body.dark-mode .checklist-control {
+      color: #d48c6a;
+      border-color: rgba(212,140,106,0.2);
+      background: rgba(212,140,106,0.1);
+    }
+    .checklist-control:hover {
+      background: rgba(180,90,46,0.2);
+      transform: translateY(-2px);
+    }
     .checklist-progress {
       text-align: center;
       margin-top: 1.5rem;
@@ -226,17 +254,24 @@
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.2);
     }
-    
+    body.dark-mode .checklist-progress {
+      background: rgba(40,40,40,0.6);
+      border-color: rgba(255,255,255,0.05);
+    }
     .checklist-progress .progress-text {
       font-size: 0.95rem;
       color: #4a4540;
     }
-    
+    body.dark-mode .checklist-progress .progress-text {
+      color: #c4c0ba;
+    }
     .checklist-progress .progress-text strong {
       color: #b45a2e;
       font-size: 1.1rem;
     }
-    
+    body.dark-mode .checklist-progress .progress-text strong {
+      color: #d48c6a;
+    }
     .progress-bar {
       width: 100%;
       height: 6px;
@@ -245,7 +280,9 @@
       margin-top: 0.5rem;
       overflow: hidden;
     }
-    
+    body.dark-mode .progress-bar {
+      background: rgba(255,255,255,0.1);
+    }
     .progress-bar .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, #b45a2e, #d48c6a);
@@ -253,7 +290,6 @@
       transition: width 0.5s ease;
       width: 0%;
     }
-    
     .reset-checklist {
       background: rgba(180,90,46,0.1);
       color: #b45a2e;
@@ -265,16 +301,18 @@
       transition: all 0.3s ease;
       margin-left: 0.8rem;
     }
-    
+    body.dark-mode .reset-checklist {
+      color: #d48c6a;
+      border-color: rgba(212,140,106,0.2);
+      background: rgba(212,140,106,0.1);
+    }
     .reset-checklist:hover {
       background: rgba(180,90,46,0.2);
     }
-    
     .visit-cta {
       text-align: center;
       padding: 2rem 1rem;
     }
-    
     .back-home {
       display: inline-block;
       background: #b45a2e;
@@ -286,97 +324,48 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 20px rgba(180,90,46,0.3);
     }
-    
+    body.dark-mode .back-home {
+      background: #d48c6a;
+    }
     .back-home:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(180,90,46,0.4);
     }
-    
-    /* Dark Mode */
-    body.dark-mode .visit-card,
-    body.dark-mode .checklist-item,
-    body.dark-mode .checklist-progress,
-    body.dark-mode .visit-stat {
-      background: rgba(40,40,40,0.6) !important;
-      border-color: rgba(255,255,255,0.08) !important;
-    }
-    
-    body.dark-mode .visit-card h3,
-    body.dark-mode .checklist-item .check-text,
-    body.dark-mode .checklist-section .section-title h2 {
-      color: #f0ece6;
-    }
-    
-    body.dark-mode .visit-card ul li,
-    body.dark-mode .checklist-progress .progress-text,
-    body.dark-mode .visit-stat .label {
-      color: #c4c0ba;
-    }
-    
-    body.dark-mode .visit-stat .number {
-      color: #d48c6a;
-    }
-    
-    body.dark-mode .checklist-item.checked .check-text {
-      opacity: 0.3;
-    }
-    
-    body.dark-mode .progress-bar {
-      background: rgba(255,255,255,0.1);
-    }
-    
-    /* Responsive */
+
     @media (max-width: 900px) {
-      .visit-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .checklist-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .visit-grid { grid-template-columns: repeat(2, 1fr); }
+      .checklist-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    
     @media (max-width: 600px) {
-      .visit-grid {
-        grid-template-columns: 1fr;
-      }
-      .checklist-grid {
-        grid-template-columns: 1fr;
-      }
-      .visit-stats {
-        grid-template-columns: 1fr 1fr;
-      }
-      .visit-hero h1 {
-        font-size: 2rem;
-      }
+      .visit-grid { grid-template-columns: 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
+      .visit-stats { grid-template-columns: 1fr 1fr; }
+      .visit-hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- ===== NAVIGATION (same as index.html) ===== -->
   <nav class="site-nav" aria-label="Primary">
     <div class="nav-inner">
       <a class="logo" href="index.html">✦ Khiva</a>
-      <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
         <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="index.html#features">Features</a>
-          <a href="index.html#places">Places</a>
-          <a href="index.html#around">Around Khiva</a>
-          <a href="index.html#tips">Tips</a>
+          <a href="index.html" data-translate="home">Home</a>
+          <a href="index.html#things" data-translate="things">Things to Do</a>
+          <a href="index.html#features" data-translate="features">Features</a>
+          <a href="index.html#places" data-translate="places">Places</a>
+          <a href="index.html#tips" data-translate="tips">Tips</a>
         </div>
-        <div class="language-switcher" style="display: flex; gap: 0.3rem;">
-          <button class="lang-btn active" data-lang="en" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; padding: 0.2rem 0.5rem; cursor: pointer; font-size: 0.75rem; transition: all 0.3s ease; color: #1d1b1a; font-weight: 500;">🇬🇧 EN</button>
-          <button class="lang-btn" data-lang="uz" style="background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 0.2rem 0.5rem; cursor: pointer; font-size: 0.75rem; transition: all 0.3s ease; color: #4a4540; font-weight: 500;">🇺🇿 UZ</button>
-          <button class="lang-btn" data-lang="ru" style="background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 0.2rem 0.5rem; cursor: pointer; font-size: 0.75rem; transition: all 0.3s ease; color: #4a4540; font-weight: 500;">🇷🇺 RU</button>
-        </div>
-        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
-          <span class="dark-icon">🌙</span>
-        </button>
+        <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-btn" data-lang="uz">🇺🇿 UZ</button>
+        <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+        <button class="dark-toggle" id="darkToggle"><span class="dark-icon">🌙</span></button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- ===== HERO ===== -->
   <div class="visit-hero">
     <div>
       <p class="eyebrow" id="visit-eyebrow">📍 Plan Your Visit</p>
@@ -385,7 +374,7 @@
     </div>
   </div>
 
-  <!-- Quick Stats -->
+  <!-- ===== QUICK STATS ===== -->
   <div class="visit-stats">
     <div class="visit-stat glass-shine">
       <div class="number">🏛️</div>
@@ -405,10 +394,8 @@
     </div>
   </div>
 
-  <!-- Main Grid -->
+  <!-- ===== MAIN GRID ===== -->
   <div class="visit-grid">
-
-    <!-- Card 1: Best Time -->
     <div class="visit-card glass-shine">
       <span class="card-icon">📅</span>
       <h3 id="v1Title">Best Time to Visit</h3>
@@ -419,8 +406,6 @@
         <li><span class="emoji">❄️</span> <span id="v1d">Winter: Magical, few tourists</span></li>
       </ul>
     </div>
-
-    <!-- Card 2: Getting There -->
     <div class="visit-card glass-shine">
       <span class="card-icon">✈️</span>
       <h3 id="v2Title">Getting There</h3>
@@ -431,8 +416,6 @@
         <li><span class="emoji">🚌</span> <span id="v2d">Shared taxis from cities</span></li>
       </ul>
     </div>
-
-    <!-- Card 3: Where to Stay -->
     <div class="visit-card glass-shine">
       <span class="card-icon">🏨</span>
       <h3 id="v3Title">Where to Stay</h3>
@@ -443,8 +426,6 @@
         <li><span class="emoji">⛺</span> <span id="v3d">Desert yurts (unique!)</span></li>
       </ul>
     </div>
-
-    <!-- Card 4: Must-Try Food -->
     <div class="visit-card glass-shine">
       <span class="card-icon">🍛</span>
       <h3 id="v4Title">Must-Try Food</h3>
@@ -455,352 +436,204 @@
         <li><span class="emoji">🍬</span> <span id="v4d">Halva & green tea</span></li>
       </ul>
     </div>
-
-    <!-- Card 5: Local Tips -->
     <div class="visit-card glass-shine">
       <span class="card-icon">💡</span>
-      <h3 id="v6Title">Local Tips</h3>
+      <h3 id="v5Title">Local Tips</h3>
       <ul>
-        <li><span class="emoji">📱</span> <span id="v6a">Offline maps</span></li>
-        <li><span class="emoji">🗣️</span> <span id="v6b">Learn local phrases</span></li>
-        <li><span class="emoji">📸</span> <span id="v6c">Ask before photos</span></li>
-        <li><span class="emoji">🎁</span> <span id="v6d">Haggle respectfully</span></li>
-        <li><span class="emoji">🕌</span> <span id="v6e">Dress modestly</span></li>
-        <li><span class="emoji">💧</span> <span id="v6f">Bottled water</span></li>
+        <li><span class="emoji">📱</span> <span id="v5a">Offline maps</span></li>
+        <li><span class="emoji">🗣️</span> <span id="v5b">Learn local phrases</span></li>
+        <li><span class="emoji">📸</span> <span id="v5c">Ask before photos</span></li>
+        <li><span class="emoji">🎁</span> <span id="v5d">Haggle respectfully</span></li>
+        <li><span class="emoji">🕌</span> <span id="v5e">Dress modestly</span></li>
+        <li><span class="emoji">💧</span> <span id="v5f">Bottled water</span></li>
       </ul>
     </div>
-
   </div>
 
-  <!-- Checklist -->
+  <!-- ===== CHECKLIST ===== -->
   <section class="checklist-section">
     <div class="section-title">
       <h2 id="checklistTitle">🧳 Packing Checklist</h2>
       <p id="checklistSub">Click items to check them off! ✅</p>
     </div>
+    <div class="checklist-controls">
+      <button class="checklist-control" id="checkAllBtn">✅ Check All</button>
+      <button class="checklist-control" id="uncheckAllBtn">⬜ Uncheck All</button>
+    </div>
     <div class="checklist-grid" id="checklistGrid"></div>
     <div class="checklist-progress">
-      <div class="progress-text">
-        Progress: <strong id="progressCount">0/6</strong> items checked
-        <button class="reset-checklist" id="resetChecklist">↻ Reset</button>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
+      <div class="progress-text">Progress: <strong id="progressCount">0/10</strong> items checked <button class="reset-checklist" id="resetChecklist">↻ Reset</button></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
   </section>
 
-  <!-- Back to Home -->
+  <!-- ===== BACK TO HOME ===== -->
   <div class="visit-cta">
     <a href="index.html" class="back-home">🏠 Back to Home</a>
   </div>
 
-  <!-- Footer -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p id="footer-text">Khiva city website • Built to celebrate the historic heart of Uzbekistan.</p>
   </footer>
 
-  <!-- Back to Top -->
+  <!-- ===== BACK TO TOP ===== -->
   <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
 
+  <script src="script.js"></script>
   <script>
-    // ============================================
-    // 1. BACK TO TOP
-    // ============================================
+    // ===== VISIT PAGE SPECIFIC CHECKLIST =====
     document.addEventListener('DOMContentLoaded', function() {
-      const backToTop = document.querySelector('.back-to-top');
-      if (backToTop) {
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            window.requestAnimationFrame(() => {
-              backToTop.classList.toggle('visible', window.scrollY > 300);
-              ticking = false;
-            });
-            ticking = true;
-          }
-        });
-      }
-    });
+      var checklistData = [
+        { id: 'item1', emoji: '🧥', category: 'clothing', textKey: 'c1' },
+        { id: 'item2', emoji: '🧣', category: 'clothing', textKey: 'c2' },
+        { id: 'item3', emoji: '👟', category: 'clothing', textKey: 'c3' },
+        { id: 'item4', emoji: '🧢', category: 'clothing', textKey: 'c4' },
+        { id: 'item5', emoji: '📷', category: 'tech', textKey: 'c5' },
+        { id: 'item6', emoji: '🔌', category: 'tech', textKey: 'c6' },
+        { id: 'item7', emoji: '🔋', category: 'tech', textKey: 'c7' },
+        { id: 'item8', emoji: '🧴', category: 'essentials', textKey: 'c8' },
+        { id: 'item9', emoji: '💵', category: 'essentials', textKey: 'c9' },
+        { id: 'item10', emoji: '💊', category: 'essentials', textKey: 'c10' }
+      ];
 
-    // ============================================
-    // 2. DARK MODE TOGGLE
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const darkToggle = document.getElementById('darkToggle');
-      if (darkToggle) {
-        const darkIcon = darkToggle.querySelector('.dark-icon');
-        if (localStorage.getItem('darkMode') === 'true') {
-          document.body.classList.add('dark-mode');
-          darkToggle.classList.add('active');
-          if (darkIcon) darkIcon.textContent = '☀️';
-        }
-        darkToggle.addEventListener('click', () => {
-          document.body.classList.toggle('dark-mode');
-          darkToggle.classList.toggle('active');
+      var checklistTexts = {
+        en: [
+          'Light layers for spring/autumn',
+          'Scarf & warm layer for evenings',
+          'Comfortable walking shoes',
+          'Hat & sunglasses',
+          'Camera & extra memory card',
+          'Travel adapter (Euro plug)',
+          'Power bank for phone',
+          'Sunscreen SPF 50+',
+          'Cash (small shops)',
+          'Basic first aid kit'
+        ],
+        uz: [
+          'Bahor/kuz uchun engil kiyimlar',
+          'Kechqurun uchun sharf va issiq kiyim',
+          'Qulay yurish poyabzali',
+          'Shlyapa va quyosh ko\'zoynagi',
+          'Kamera va qo\'shimcha xotira kartasi',
+          'Sayohat adapteri (Euro vilka)',
+          'Telefon uchun quvvat banki',
+          'Quyosh kremi SPF 50+',
+          'Naqd pul (kichik do\'konlar)',
+          'Birinchi yordam to\'plami'
+        ],
+        ru: [
+          'Лёгкие слои для весны/осени',
+          'Шарф и тёплый слой для вечера',
+          'Удобная обувь для ходьбы',
+          'Шляпа и солнцезащитные очки',
+          'Камера и доп. карта памяти',
+          'Адаптер для розетки (Euro)',
+          'Пауэрбанк для телефона',
+          'Солнцезащитный крем SPF 50+',
+          'Наличные (маленькие магазины)',
+          'Аптечка первой помощи'
+        ]
+      };
+
+      var currentLang = localStorage.getItem('language') || 'en';
+      var stored = localStorage.getItem('visitChecklistState');
+      var checkedState = {};
+      if (stored) {
+        try { checkedState = JSON.parse(stored); } catch(e) { checkedState = {}; }
+      }
+
+      function renderChecklist(lang) {
+        var grid = document.getElementById('checklistGrid');
+        var texts = checklistTexts[lang] || checklistTexts.en;
+        grid.innerHTML = '';
+        var categories = [
+          { id: 'clothing', label: (lang === 'en' ? '👕 Clothing' : lang === 'uz' ? '👕 Kiyimlar' : '👕 Одежда') },
+          { id: 'tech', label: (lang === 'en' ? '📱 Tech' : lang === 'uz' ? '📱 Texnika' : '📱 Техника') },
+          { id: 'essentials', label: (lang === 'en' ? '🧴 Essentials' : lang === 'uz' ? '🧴 Zarur narsalar' : '🧴 Необходимое') }
+        ];
+        categories.forEach(function(cat) {
+          var header = document.createElement('div');
+          header.className = 'category-header';
+          header.style.cssText = 'grid-column: 1 / -1; font-weight: 600; color: #b45a2e; font-size: 0.9rem; padding: 0.5rem 0 0.2rem 0; border-bottom: 1px solid rgba(180,90,46,0.15); margin-top: 0.3rem;';
           if (document.body.classList.contains('dark-mode')) {
-            if (darkIcon) darkIcon.textContent = '☀️';
-            localStorage.setItem('darkMode', 'true');
-          } else {
-            if (darkIcon) darkIcon.textContent = '🌙';
-            localStorage.setItem('darkMode', 'false');
+            header.style.color = '#d48c6a';
+            header.style.borderBottomColor = 'rgba(212,140,106,0.2)';
           }
-        });
-      }
-    });
-
-    // ============================================
-    // 3. CHECKLIST
-    // ============================================
-    const checklistData = [
-      { id: 'item1', emoji: '🧥', textKey: 'c1' },
-      { id: 'item2', emoji: '🧴', textKey: 'c2' },
-      { id: 'item3', emoji: '📷', textKey: 'c3' },
-      { id: 'item4', emoji: '💵', textKey: 'c4' },
-      { id: 'item5', emoji: '🔌', textKey: 'c5' },
-      { id: 'item6', emoji: '👟', textKey: 'c6' }
-    ];
-
-    const checklistTexts = {
-      en: ['Light layers', 'Sunscreen & hat', 'Camera', 'Cash', 'Travel adapter', 'Walking shoes'],
-      uz: ['Engil kiyimlar', 'Quyosh kremi', 'Kamera', 'Naqd pul', 'Adapter', 'Poyabzal'],
-      ru: ['Лёгкая одежда', 'Крем и шляпа', 'Камера', 'Наличные', 'Адаптер', 'Обувь']
-    };
-
-    let currentLang = localStorage.getItem('language') || 'en';
-    let checkedState = JSON.parse(localStorage.getItem('checklistState')) || {};
-
-    function renderChecklist(lang) {
-      const grid = document.getElementById('checklistGrid');
-      const texts = checklistTexts[lang] || checklistTexts.en;
-      grid.innerHTML = '';
-      checklistData.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = `checklist-item${checkedState[item.id] ? ' checked' : ''}`;
-        div.dataset.id = item.id;
-        div.innerHTML = `
-          <div class="check-box">${checkedState[item.id] ? '✓' : ''}</div>
-          <span class="check-emoji">${item.emoji}</span>
-          <span class="check-text">${texts[index]}</span>
-        `;
-        div.addEventListener('click', () => toggleCheck(item.id));
-        grid.appendChild(div);
-      });
-      updateProgress();
-    }
-
-    function toggleCheck(id) {
-      checkedState[id] = !checkedState[id];
-      localStorage.setItem('checklistState', JSON.stringify(checkedState));
-      renderChecklist(currentLang);
-    }
-
-    function updateProgress() {
-      const total = checklistData.length;
-      const checked = Object.values(checkedState).filter(v => v).length;
-      document.getElementById('progressCount').textContent = `${checked}/${total}`;
-      document.getElementById('progressFill').style.width = `${(checked/total)*100}%`;
-    }
-
-    document.getElementById('resetChecklist').addEventListener('click', () => {
-      checkedState = {};
-      localStorage.setItem('checklistState', JSON.stringify(checkedState));
-      renderChecklist(currentLang);
-    });
-
-    // ============================================
-    // 4. TRANSLATIONS
-    // ============================================
-    const translations = {
-      en: {
-        visitEyebrow: '📍 Plan Your Visit',
-        visitTitle: 'Your Journey to Khiva',
-        visitSubtitle: 'Everything you need to know before you go',
-        stat1: 'UNESCO Site',
-        stat2: 'Landmarks',
-        stat3: '4 Seasons',
-        stat4: 'Local Food',
-        v1Title: 'Best Time to Visit',
-        v1a: 'Spring: Mild weather, gardens',
-        v1b: 'Autumn: Perfect temps, golden',
-        v1c: 'Summer: Hot, less crowded',
-        v1d: 'Winter: Magical, few tourists',
-        v2Title: 'Getting There',
-        v2a: 'Fly to Urgench (UGC)',
-        v2b: '30-min drive to Khiva',
-        v2c: 'Overnight train from Tashkent',
-        v2d: 'Shared taxis from cities',
-        v3Title: 'Where to Stay',
-        v3a: 'Inside Itchan Kala',
-        v3b: 'Guesthouses with locals',
-        v3c: 'Modern hotels near center',
-        v3d: 'Desert yurts (unique!)',
-        v4Title: 'Must-Try Food',
-        v4a: 'Plov (rice with meat)',
-        v4b: 'Manti (steamed dumplings)',
-        v4c: 'Shurpa (meat soup)',
-        v4d: 'Halva & green tea',
-        v6Title: 'Local Tips',
-        v6a: 'Offline maps',
-        v6b: 'Learn local phrases',
-        v6c: 'Ask before photos',
-        v6d: 'Haggle respectfully',
-        v6e: 'Dress modestly',
-        v6f: 'Bottled water',
-        checklistTitle: '🧳 Packing Checklist',
-        checklistSub: 'Click items to check them off! ✅',
-        footer: 'Khiva city website • Built to celebrate the historic heart of Uzbekistan.'
-      },
-      uz: {
-        visitEyebrow: '📍 Sayohatni rejalashtiring',
-        visitTitle: 'Xivaga sayohatingiz',
-        visitSubtitle: 'Sayohatdan oldin bilishingiz kerak bo\'lgan hamma narsa',
-        stat1: 'UNESCO joyi',
-        stat2: 'Diqqatga sazovor joylar',
-        stat3: '4 mavsum',
-        stat4: 'Mahalliy taomlar',
-        v1Title: 'Tashrif uchun eng yaxshi vaqt',
-        v1a: 'Bahor: Yumshoq ob-havo, bog\'lar',
-        v1b: 'Kuz: Ideal harorat, oltin',
-        v1c: 'Yoz: Issiq, kam olomon',
-        v1d: 'Qish: Sehrli, sayyohlar kam',
-        v2Title: 'Qanday borish',
-        v2a: 'Urganchga uchish (UGC)',
-        v2b: 'Xivaga 30 daqiqa',
-        v2c: 'Toshkentdan tungi poyezd',
-        v2d: 'Yaqin shaharlardan taksilar',
-        v3Title: 'Qayerda qolish',
-        v3a: 'Ichan Qal\'a ichida',
-        v3b: 'Mahalliy oilalar bilan',
-        v3c: 'Markazdagi mehmonxonalar',
-        v3d: 'Cho\'l o\'tovlari (noyob!)',
-        v4Title: 'Tatib ko\'rish kerak',
-        v4a: 'Plov (go\'sht bilan)',
-        v4b: 'Manti (bug\'langan)',
-        v4c: 'Shurpa (go\'shtli)',
-        v4d: 'Halva va ko\'k choy',
-        v6Title: 'Mahalliy maslahatlar',
-        v6a: 'Offline xaritalar',
-        v6b: 'Mahalliy iboralar',
-        v6c: 'Suratga olishdan oldin ruxsat',
-        v6d: 'Hurmat bilan savdolashing',
-        v6e: 'Odobli kiyining',
-        v6f: 'Shisha suv',
-        checklistTitle: '🧳 Narsalar ro\'yxati',
-        checklistSub: 'Belgilash uchun bosing! ✅',
-        footer: 'Xiva shahar veb-sayti • O\'zbekistonning tarixiy qalbini nishonlash uchun yaratilgan.'
-      },
-      ru: {
-        visitEyebrow: '📍 Спланируйте поездку',
-        visitTitle: 'Ваше путешествие в Хиву',
-        visitSubtitle: 'Всё, что нужно знать перед поездкой',
-        stat1: 'Объект ЮНЕСКО',
-        stat2: 'Достопримечательности',
-        stat3: '4 сезона',
-        stat4: 'Местная еда',
-        v1Title: 'Лучшее время',
-        v1a: 'Весна: Мягкая погода, сады',
-        v1b: 'Осень: Идеальная температура',
-        v1c: 'Лето: Жарко, меньше людей',
-        v1d: 'Зима: Волшебно, мало туристов',
-        v2Title: 'Как добраться',
-        v2a: 'Лететь в Ургенч (UGC)',
-        v2b: '30 минут до Хивы',
-        v2c: 'Ночной поезд из Ташкента',
-        v2d: 'Такси из городов',
-        v3Title: 'Где остановиться',
-        v3a: 'Внутри Ичан-Калы',
-        v3b: 'Гостевые дома',
-        v3c: 'Отели у центра',
-        v3d: 'Пустынные юрты!',
-        v4Title: 'Что попробовать',
-        v4a: 'Плов (с мясом)',
-        v4b: 'Манты (паровые)',
-        v4c: 'Шурпа (суп)',
-        v4d: 'Халва и чай',
-        v6Title: 'Местные советы',
-        v6a: 'Офлайн-карты',
-        v6b: 'Местные фразы',
-        v6c: 'Спрашивайте разрешение',
-        v6d: 'Торгуйтесь',
-        v6e: 'Скромная одежда',
-        v6f: 'Бутилированная вода',
-        checklistTitle: '🧳 Список вещей',
-        checklistSub: 'Нажимайте, чтобы отметить! ✅',
-        footer: 'Веб-сайт города Хивы • Создан в честь исторического сердца Узбекистана.'
-      }
-    };
-
-    // ============================================
-    // 5. LANGUAGE SWITCHER
-    // ============================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const langBtns = document.querySelectorAll('.lang-btn');
-      
-      function setLanguage(lang) {
-        currentLang = lang;
-        localStorage.setItem('language', lang);
-        
-        langBtns.forEach(btn => {
-          btn.classList.remove('active');
-          if (btn.dataset.lang === lang) {
-            btn.classList.add('active');
-            btn.style.background = 'rgba(255,255,255,0.2)';
-            btn.style.borderColor = 'rgba(255,255,255,0.4)';
-            btn.style.color = '#1d1b1a';
-          } else {
-            btn.style.background = 'none';
-            btn.style.borderColor = 'rgba(255,255,255,0.2)';
-            btn.style.color = '#4a4540';
-          }
-        });
-        
-        if (document.body.classList.contains('dark-mode')) {
-          langBtns.forEach(btn => {
-            btn.style.color = '#c4c0ba';
-            if (btn.dataset.lang === lang) {
-              btn.style.background = 'rgba(255,255,255,0.1)';
-              btn.style.borderColor = 'rgba(255,255,255,0.3)';
+          header.textContent = cat.label;
+          grid.appendChild(header);
+          checklistData.forEach(function(item, index) {
+            if (item.category === cat.id) {
+              var div = document.createElement('div');
+              var isChecked = checkedState[item.id] === true;
+              div.className = 'checklist-item' + (isChecked ? ' checked' : '');
+              div.dataset.id = item.id;
+              div.innerHTML = '<div class="check-box">' + (isChecked ? '✓' : '') + '</div><span class="check-emoji">' + item.emoji + '</span><span class="check-text">' + texts[index] + '</span>';
+              div.addEventListener('click', function() { toggleCheck(item.id); });
+              grid.appendChild(div);
             }
           });
+        });
+        updateProgress();
+      }
+
+      function toggleCheck(id) {
+        if (checkedState[id]) {
+          delete checkedState[id];
+        } else {
+          checkedState[id] = true;
         }
-        
-        const t = translations[lang] || translations.en;
-        
-        const idMap = {
-          'visit-eyebrow': 'visitEyebrow',
-          'visit-title': 'visitTitle',
-          'visit-subtitle': 'visitSubtitle',
-          'stat1': 'stat1',
-          'stat2': 'stat2',
-          'stat3': 'stat3',
-          'stat4': 'stat4',
-          'v1Title': 'v1Title',
-          'v1a': 'v1a',
-          'v1b': 'v1b',
-          'v1c': 'v1c',
-          'v1d': 'v1d',
-          'v2Title': 'v2Title',
-          'v2a': 'v2a',
-          'v2b': 'v2b',
-          'v2c': 'v2c',
-          'v2d': 'v2d',
-          'v3Title': 'v3Title',
-          'v3a': 'v3a',
-          'v3b': 'v3b',
-          'v3c': 'v3c',
-          'v3d': 'v3d',
-          'v4Title': 'v4Title',
-          'v4a': 'v4a',
-          'v4b': 'v4b',
-          'v4c': 'v4c',
-          'v4d': 'v4d',
-          'v6Title': 'v6Title',
-          'v6a': 'v6a',
-          'v6b': 'v6b',
-          'v6c': 'v6c',
-          'v6d': 'v6d',
-          'v6e': 'v6e',
-          'v6f': 'v6f',
-          'checklistTitle': 'checklistTitle
-          
+        localStorage.setItem('visitChecklistState', JSON.stringify(checkedState));
+        renderChecklist(currentLang);
+      }
+
+      function updateProgress() {
+        var total = checklistData.length;
+        var checked = Object.keys(checkedState).filter(function(k) { return checkedState[k] === true; }).length;
+        document.getElementById('progressCount').textContent = checked + '/' + total;
+        document.getElementById('progressFill').style.width = (checked/total)*100 + '%';
+      }
+
+      document.getElementById('checkAllBtn').addEventListener('click', function() {
+        checklistData.forEach(function(item) { checkedState[item.id] = true; });
+        localStorage.setItem('visitChecklistState', JSON.stringify(checkedState));
+        renderChecklist(currentLang);
+      });
+
+      document.getElementById('uncheckAllBtn').addEventListener('click', function() {
+        checklistData.forEach(function(item) { delete checkedState[item.id]; });
+        localStorage.setItem('visitChecklistState', JSON.stringify(checkedState));
+        renderChecklist(currentLang);
+      });
+
+      document.getElementById('resetChecklist').addEventListener('click', function() {
+        if (confirm('Reset all checklist items?')) {
+          checklistData.forEach(function(item) { delete checkedState[item.id]; });
+          localStorage.setItem('visitChecklistState', JSON.stringify(checkedState));
+          renderChecklist(currentLang);
+        }
+      });
+
+      // Listen for language changes from the main script (it updates data-translate, but we need to re-render checklist)
+      // We'll re-render when language changes via mutation observer or by hooking into the global setLanguage?
+      // For simplicity, we can re-render on storage change or by checking language from localStorage periodically.
+      // Since the main script saves language to localStorage, we can observe that.
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'language') {
+          currentLang = e.newValue || 'en';
+          renderChecklist(currentLang);
+        }
+      });
+
+      // Also re-render when dark mode changes (for colors)
+      var observer = new MutationObserver(function() {
+        renderChecklist(currentLang);
+      });
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+      // Initial render
+      renderChecklist(currentLang);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itchan Kala | UNESCO Heritage Site</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    
+    /* ===== ITCHAN KALA PAGE SPECIFIC STYLES ===== */
+    .ik-hero {
+      position: relative;
+      min-height: 60vh;
+      background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3)),
+                  url('https://images.unsplash.com/photo-1582300993949-3ac2b4dc9f03?w=1200&q=80') center center no-repeat;
+      background-size: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 8rem 2rem 4rem;
+      border-radius: 0 0 40px 40px;
+      margin-top: 60px;
+    }
+    .ik-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    .ik-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .ik-hero .badge {
+      display: inline-block;
+      background: rgba(255,215,0,0.2);
+      border: 1px solid rgba(255,215,0,0.3);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .ik-section {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+    .ik-section .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #1d1b1a;
+    }
+    body.dark-mode .ik-section .section-title {
+      color: #f0ece6;
+    }
+    .ik-section .section-sub {
+      text-align: center;
+      color: #4a4540;
+      max-width: 700px;
+      margin: -0.5rem auto 2rem;
+      font-size: 1.05rem;
+    }
+    body.dark-mode .ik-section .section-sub {
+      color: #c4c0ba;
+    }
+    .ik-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .ik-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ik-card {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 1.8rem;
+      transition: all 0.4s ease;
+    }
+    body.dark-mode .ik-card {
+      background: rgba(40,40,40,0.6);
+      border-color: rgba(255,255,255,0.05);
+    }
+    .ik-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+    }
+    .ik-card .ik-icon {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .ik-card h3 {
+      font-size: 1.2rem;
+      color: #1d1b1a;
+      margin-bottom: 0.3rem;
+    }
+    body.dark-mode .ik-card h3 {
+      color: #f0ece6;
+    }
+    .ik-card p {
+      color: #4a4540;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    body.dark-mode .ik-card p {
+      color: #c4c0ba;
+    }
+    .ik-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .ik-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #b45a2e, #d48c6a);
+    }
+    .ik-timeline-item {
+      padding: 0.5rem 0 1.5rem 1.5rem;
+      position: relative;
+    }
+    .ik-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 0.8rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #b45a2e;
+      border: 2px solid #f7f5f0;
+    }
+    body.dark-mode .ik-timeline-item::before {
+      border-color: #121212;
+    }
+    .ik-timeline-item .year {
+      font-weight: 700;
+      color: #b45a2e;
+      font-size: 1.1rem;
+    }
+    body.dark-mode .ik-timeline-item .year {
+      color: #d48c6a;
+    }
+    .ik-timeline-item p {
+      color: #4a4540;
+      margin-top: 0.2rem;
+    }
+    body.dark-mode .ik-timeline-item p {
+      color: #c4c0ba;
+    }
+    .ik-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .ik-fact {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    body.dark-mode .ik-fact {
+      background: rgba(40,40,40,0.4);
+    }
+    .ik-fact .number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #b45a2e;
+    }
+    body.dark-mode .ik-fact .number {
+      color: #d48c6a;
+    }
+    .ik-fact .label {
+      font-size: 0.8rem;
+      color: #4a4540;
+    }
+    body.dark-mode .ik-fact .label {
+      color: #c4c0ba;
+    }
+    .ik-cta {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .ik-cta .btn {
+      display: inline-block;
+      background: #b45a2e;
+      color: white;
+      padding: 0.8rem 2.5rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(180,90,46,0.3);
+    }
+    body.dark-mode .ik-cta .btn {
+      background: #d48c6a;
+    }
+    .ik-cta .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(180,90,46,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .ik-grid { grid-template-columns: 1fr 1fr; }
+      .ik-grid-2 { grid-template-columns: 1fr; }
+      .ik-facts { grid-template-columns: 1fr 1fr; }
+      .ik-hero h1 { font-size: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      .ik-grid { grid-template-columns: 1fr; }
+      .ik-facts { grid-template-columns: 1fr 1fr; }
+      .ik-hero h1 { font-size: 2rem; }
+      .ik-hero { min-height: 40vh; padding: 5rem 1.5rem 2rem; }
+
+      <style>
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  }
+
+  .feature-image-wrapper {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+  }
+
+  .feature-content {
+    padding: 1.5rem;
+  }
+
+  .feature-content h3 {
+    font-size: 1.1rem;
+    color: #1d1b1a;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-content p {
+    color: #4a4540;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  body.dark-mode .feature-card {
+    background: rgba(40, 40, 40, 0.6);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .feature-content h3 {
+    color: #f0ece6;
+  }
+
+  body.dark-mode .feature-content p {
+    color: #c4c0ba;
+  }
+
+  @media (max-width: 900px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">✦ Khiva</a>
+      <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#things">Things to Do</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#places">Places</a>
+          <a href="index.html#tips">Tips</a>
+          <a href="index.html#map">Map</a>
+          <a href="Itchan Kala.html">Itchan Kala</a>
+        </div>
+        <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-btn" data-lang="uz">🇺🇿 UZ</button>
+        <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+        <button class="dark-toggle" id="darkToggle"><span class="dark-icon">🌙</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <div class="ik-hero">
+    <div>
+      <div class="badge">🏛️ UNESCO World Heritage Site</div>
+      <h1>Itchan Kala</h1>
+      <p>The ancient heart of Khiva — a walled city that has stood for over a millennium, preserving the soul of the Silk Road.</p>
+    </div>
+  </div>
+
+  <!-- ===== QUICK FACTS ===== -->
+  <section class="ik-section">
+    <div class="ik-facts">
+      <div class="ik-fact glass-shine">
+        <div class="number">50+</div>
+        <div class="label">Historic Monuments</div>
+      </div>
+      <div class="ik-fact glass-shine">
+        <div class="number">2.5 km</div>
+        <div class="label">Walls Length</div>
+      </div>
+      <div class="ik-fact glass-shine">
+        <div class="number">26</div>
+        <div class="label">Hectares Area</div>
+      </div>
+      <div class="ik-fact glass-shine">
+        <div class="number">1990</div>
+        <div class="label">UNESCO Listed</div>
+      </div>
+    </div>
+  </section>
+ <!-- STATS -->
+    <section class="stats-section">
+      <div class="stat-card glass-shine stat-hover">
+        <div class="stat-content"><div class="stat-number">50+</div><div class="stat-label" data-translate="stat1">Historic Monuments</div></div>
+        <div class="stat-image"><img src="https://unsplash.com/photos/ancient-city-with-mud-brick-buildings-and-turquoise-domes-lP8nzEyxdWU" alt="Monuments" loading="lazy" /></div>
+      </div>
+      <div class="stat-card glass-shine stat-hover">
+        <div class="stat-content"><div class="stat-number">2.5 km</div><div class="stat-label" data-translate="stat2">Walls Length</div></div>
+        <div class="stat-image"><img src="https://picsum.photos/seed/walls/400/300" alt="Walls Length" loading="lazy" /></div>
+      </div>
+      <div class="stat-card glass-shine stat-hover">
+        <div class="stat-content"><div class="stat-number">60+</div><div class="stat-label" data-translate="stat3">Monuments Inside Walls</div></div>
+        <div class="stat-image"><img src="https://picsum.photos/seed/walls/400/300" alt="Walls" loading="lazy" /></div>
+      </div>
+      <div class="stat-card glass-shine stat-hover">
+        <div class="stat-content"><div class="stat-number">1000+</div><div class="stat-label" data-translate="stat4">Years of History</div></div>
+        <div class="stat-image"><img src="https://picsum.photos/seed/history/400/300" alt="History" loading="lazy" /></div>
+      </div>
+    </section>
+    
+  <!-- ===== ABOUT ===== -->
+  <section class="ik-section">
+    <h2 class="section-title">🏛️ About Itchan Kala</h2>
+    <p class="section-sub">Itchan Kala is the inner fortress of Khiva, a living museum of Islamic architecture and Central Asian history.</p>
+    <div class="ik-card glass-shine" style="max-width: 900px; margin: 0 auto;">
+      <p style="font-size: 1.05rem; line-height: 1.8;">
+        Itchan Kala (meaning "Inner City" in Uzbek) is the historic core of Khiva. Surrounded by massive clay walls that have stood for centuries, this UNESCO World Heritage site is one of the best-preserved examples of a Silk Road city. Inside its 2.5-kilometer walls, you'll find over 50 historic monuments, including madrassahs, mosques, caravanserais, and palaces — many dating back to the 14th century.
+        <br /><br />
+        The city was a major stop along the ancient Silk Road, where traders from China, Persia, India, and Europe would rest, trade, and pray. Its architecture reflects a blend of Persian, Turkic, and Islamic influences, with intricate turquoise tiles, carved wooden columns, and majestic domes.
+      </p>
+    </div>
+  </section>
+
+      <!-- LANDMARKS INSIDE ITCHAN KALA -->
+    <section class="key-features section" id="features">
+      <h2 class="section-title">✨ Landmarks Inside Itchan Kala</h2>
+      <div class="features-grid">
+        
+        <!-- Kalta Minor Minaret -->
+        <div class="feature-card reveal glass-shine feature-hover">
+          <div class="feature-image-wrapper" style="background: linear-gradient(135deg, #2a9d8f, #1a6b5a); display: flex; align-items: center; justify-content: center; height: 200px; font-size: 4rem; color: white;">
+            🕌
+          </div>
+          <div class="feature-content">
+            <h3>Kalta Minor Minaret</h3>
+            <p>A striking, turquoise-tiled minaret that remains unfinished but stands as one of the most iconic symbols of the city.</p>
+          </div>
+        </div>
+
+        <!-- Islam Khodja Complex -->
+        <div class="feature-card reveal glass-shine feature-hover">
+          <div class="feature-image-wrapper" style="background: linear-gradient(135deg, #e76f51, #b8533a); display: flex; align-items: center; justify-content: center; height: 200px; font-size: 4rem; color: white;">
+            🌄
+          </div>
+          <div class="feature-content">
+            <h3>Islam Khodja Complex</h3>
+            <p>Features the city's tallest minaret, offering panoramic views of the entire oasis for those who climb its narrow steps.</p>
+          </div>
+        </div>
+
+        <!-- Juma Mosque -->
+        <div class="feature-card reveal glass-shine feature-hover">
+          <div class="feature-image-wrapper" style="background: linear-gradient(135deg, #6d597a, #4a3a56); display: flex; align-items: center; justify-content: center; height: 200px; font-size: 4rem; color: white;">
+            🕊️
+          </div>
+          <div class="feature-content">
+            <h3>Juma Mosque</h3>
+            <p>A unique 10th-century mosque known for its large prayer hall supported by over 200 beautifully carved wooden pillars.</p>
+          </div>
+        </div>
+
+        <!-- Tash Hauli Palace -->
+        <div class="feature-card reveal glass-shine feature-hover">
+          <div class="feature-image-wrapper" style="background: linear-gradient(135deg, #c47b2c, #8b5a2b); display: flex; align-items: center; justify-content: center; height: 200px; font-size: 4rem; color: white;">
+            🏰
+          </div>
+          <div class="feature-content">
+            <h3>Tash Hauli Palace</h3>
+            <p>Known as the "Stone Palace," it is decorated with intricate stucco, frescoes, and spectacular carved ceilings.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+  <!-- ===== TOP LANDMARKS ===== -->
+  <section class="ik-section">
+    <h2 class="section-title">📍 Top Landmarks Inside Itchan Kala</h2>
+    <div class="ik-grid">
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🕌</span>
+        <h3>Kalta Minor Minaret</h3>
+        <p>An unfinished turquoise-tiled minaret that was meant to be the tallest in Central Asia. It remains Khiva's most iconic symbol.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🏛️</span>
+        <h3>Kunya Ark</h3>
+        <p>The palace fortress of Khiva's rulers, featuring a watchtower, throne room, harem, and the ceremonial Kurnysh-Dar square.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🕊️</span>
+        <h3>Juma Mosque</h3>
+        <p>A 10th-century mosque with a large prayer hall supported by over 200 beautifully carved wooden pillars.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🌄</span>
+        <h3>Islam Khodja Complex</h3>
+        <p>Features the city's tallest minaret, offering panoramic views of the entire oasis for those who climb its narrow steps.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🏰</span>
+        <h3>Tash Hauli Palace</h3>
+        <p>Known as the "Stone Palace," it is decorated with intricate stucco, frescoes, and spectacular carved ceilings.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🌙</span>
+        <h3>Pahlavan Mahmud Mausoleum</h3>
+        <p>Dedicated to the patron saint and poet of Khiva, this peaceful mausoleum is a place of reverence and craftsmanship.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="ik-section">
+    <h2 class="section-title">📜 History Timeline</h2>
+    <div class="ik-card glass-shine" style="max-width: 800px; margin: 0 auto;">
+      <div class="ik-timeline">
+        <div class="ik-timeline-item">
+          <div class="year">6th Century</div>
+          <p>Khiva established as a small settlement along the Silk Road.</p>
+        </div>
+        <div class="ik-timeline-item">
+          <div class="year">10th Century</div>
+          <p>Juma Mosque built — the oldest standing structure in Itchan Kala.</p>
+        </div>
+        <div class="ik-timeline-item">
+          <div class="year">14th–15th Century</div>
+          <p>Golden age of Khiva — major monuments built, city becomes a key Silk Road hub.</p>
+        </div>
+        <div class="ik-timeline-item">
+          <div class="year">18th–19th Century</div>
+          <p>Kalta Minor and Tash Hauli Palace constructed during Khiva's last flourishing period.</p>
+        </div>
+        <div class="ik-timeline-item">
+          <div class="year">1990</div>
+          <p>Itchan Kala inscribed as a UNESCO World Heritage Site.</p>
+        </div>
+        <div class="ik-timeline-item">
+          <div class="year">2024</div>
+          <p>Restoration efforts continue to preserve this timeless treasure for future generations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISITOR INFO ===== -->
+  <section class="ik-section">
+    <h2 class="section-title">🧳 Visitor Information</h2>
+    <div class="ik-grid ik-grid-2">
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">⏰</span>
+        <h3>Opening Hours</h3>
+        <p>Itchan Kala is open for every one 24/7. However, the specific monuments, museums, and ticketed attractions inside the complex do have set operating hours.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">🎟️</span>
+        <h3>Ticket Price</h3>
+        <p>Entry to Itchan Kala is completely free. Only some monuments, madrassas and museums may require entry tickets.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">👗</span>
+        <h3>Dress Code</h3>
+        <p>Modest clothing is recommended when visiting mosques and mausoleums. Shoulders and knees should be covered due to religious customs.</p>
+      </div>
+      <div class="ik-card glass-shine">
+        <span class="ik-icon">📸</span>
+        <h3>Photography</h3>
+        <p>Photography is allowed in most areas, but some museums may charge a small fee for cameras.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BACK TO HOME ===== -->
+  <div class="ik-cta">
+    <a href="index.html" class="btn">🏠 Back to Home</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Khiva city website • Built to celebrate the historic heart of Uzbekistan.</p>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
+
+  <script src="script.js"></script>
+  <script>
+    // ===== VISIT PAGE SPECIFIC =====
+    // Re-use the same dark mode and language switcher from main script.js
+    // But we need to handle translations for this page too
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Dark mode is already handled by script.js
+      // Language switcher is already handled by script.js
+      // But we need to add translations for this page
+
+      var ikTranslations = {
+        en: {
+          ikTitle: 'Itchan Kala',
+          ikSub: 'The ancient heart of Khiva — a walled city that has stood for over a millennium, preserving the soul of the Silk Road.'
+        },
+        uz: {
+          ikTitle: 'Ichan Qal\'a',
+          ikSub: 'Xivaning qadimiy qalbi — ming yildan ortiq vaqt davomida turgan devorli shahar, Ipak yo\'lining ruhini saqlab qolgan.'
+        },
+        ru: {
+          ikTitle: 'Ичан-Кала',
+          ikSub: 'Древнее сердце Хивы — город в стенах, который стоит более тысячелетия, сохраняя душу Великого Шёлкового пути.'
+        }
+      };
+
+      // Update hero text when language changes
+      var lang = localStorage.getItem('language') || 'en';
+      var heroTitle = document.querySelector('.ik-hero h1');
+      var heroSub = document.querySelector('.ik-hero p');
+
+      if (heroTitle && heroSub) {
+        var currentLang = lang;
+        var setIkLanguage = function(l) {
+          var t = ikTranslations[l] || ikTranslations.en;
+          heroTitle.textContent = t.ikTitle;
+          heroSub.textContent = t.ikSub;
+        };
+
+        // Listen for language changes
+        var langBtns = document.querySelectorAll('.lang-btn');
+        langBtns.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var newLang = this.dataset.lang;
+            setIkLanguage(newLang);
+          });
+        });
+
+        // Initial set
+        setIkLanguage(currentLang);
+      }
+    });
+
+    // ===== BACK TO TOP (local override) =====
+    document.addEventListener('DOMContentLoaded', function() {
+      var backToTop = document.querySelector('.back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+        backToTop.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+
+    console.log('🏛️ Itchan Kala page loaded!');
+  </script>
+</body>
+</html>

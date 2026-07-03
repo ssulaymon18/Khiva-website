@@ -3,283 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khiva City | Jewel of the Silk Road</title>
+  <title>Khiva: From Silk Road to UNESCO Heritage Site</title>
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="hero" id="home">
-    <nav class="site-nav" aria-label="Primary">
-      <div class="nav-inner">
-        <a class="logo" href="#home">✦ Khiva</a>
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-          <div class="nav-links">
-  <a href="#home" data-translate="home">Home</a>
-  <a href="#features" data-translate="features">Features</a>
-  <a href="#places" data-translate="places">Places</a>
-  <a href="#around" data-translate="around">Around Khiva</a>
-  <a href="#tips" data-translate="tips">Tips</a>
-  <a href="visit.html" data-translate="visit">Plan Your Visit</a>
-</div>
-
-          <div class="language-switcher" style="display: flex; gap: 0.3rem;">
-            <button class="lang-btn active" data-lang="en" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; padding: 0.2rem 0.5rem; cursor: pointer; font-size: 0.75rem; transition: all 0.3s ease; color: #1d1b1a; font-weight: 500;">🇬🇧 EN</button>
-            <button class="lang-btn" data-lang="uz" style="background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 0.2rem 0.5rem; cursor: pointer; font-size: 0.75rem; transition: all 0.3s ease; color: #4a4540; font-weight: 500;">🇺🇿 UZ</button>
-            <button class="lang-btn" data-lang="ru" style="background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 0.2rem 0.5rem; cursor: pointer; font-size: 0.75rem; transition: all 0.3s ease; color: #4a4540; font-weight: 500;">🇷🇺 RU</button>
-          </div>
-          <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
-            <span class="dark-icon">🌙</span>
-          </button>
-        </div> 
-      </div>
-    </nav>
     
-    <!-- HERO BACKGROUND IMAGE -->
-    <div class="hero-bg-image"></div>
-    <div class="overlay"></div>
-    
-    <div class="hero-content">
-      <p class="eyebrow" id="hero-eyebrow">✨ Discover Khiva</p>
-      <h1 id="hero-title">Khiva: The Walled City of Timeless Wonders</h1>
-      <p id="hero-subtitle">Walk through centuries of history in the heart of Uzbekistan, where ornate madrassahs, graceful minarets, and caravanserais bring the Silk Road to life.</p>
-      <div class="hero-buttons">
-        <a href="#features" class="btn-primary" data-translate="explore">Explore Now →</a>
-        <a href="visit.html" class="btn-secondary" data-translate="visit">Plan Your Visit</a>
-      </div>
-      
-      <!-- SHARE BUTTON -->
-      <div class="hero-actions">
-        <button class="share-btn" onclick="sharePage()" aria-label="Share this page">📤 Share</button>
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="logo" href="#home">✦ Khiva</a>
+      <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+        <div class="nav-links">
+          <a href="#home" data-translate="home">Home</a>
+          <a href="#things" data-translate="things">Places to visit</a>
+          <a href="#places" data-translate="places">Places</a>
+          <a href="#map" data-translate="map">Map</a>
+          <span class="nav-separator">|</span>
+          <a href="Itchan Kala.html" data-translate="itchanKala">Itchan Kala</a>
+          <a href="visit.html" data-translate="visit">Plan Your Visit</a>
+        </div>
+        <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-btn" data-lang="uz">🇺🇿 UZ</button>
+        <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+        <button class="dark-toggle" id="darkToggle"><span class="dark-icon">🌙</span></button>
       </div>
     </div>
-  </header>
+  </nav>
+
+  <!-- HERO BACKGROUND IMAGE -->
+  <div class="hero-bg-image">
+    <img src="images/khiva-hero.png" alt="Khiva skyline" />
+  </div>
+  <div class="overlay"></div>
+
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+    <p class="eyebrow" id="hero-eyebrow">✨ Discover Khiva</p>
+    <h1 id="hero-title">Khiva: From Silk Road to UNESCO Heritage Site</h1>
+    <p id="hero-subtitle">Walk through centuries of history in the heart of Uzbekistan, where ornate madrassahs, graceful minarets, and caravanserais bring the Silk Road to life.</p>
+    <div class="hero-buttons">
+      <a href="#features" class="btn-primary" data-translate="explore">Explore Now →</a>
+<a href="visit.html" class="btn-secondary" data-translate="visit">Plan Your Visit</a>
+    </div>
+  </div>
+</header>
+
 
   <main>
     <!-- INTRO -->
     <section class="intro section reveal" id="about">
-      <div>
-        <h2 id="intro-title">Why Khiva is unforgettable</h2>
-        <p id="intro-text">Khiva is one of the best-preserved historic cities in Central Asia. Its old town, Itchan Kala, is a UNESCO World Heritage site, surrounded by red clay walls and filled with palace courtyards, grand mosques, and atmospheric bazaars.</p>
-      </div>
+      <h2 id="intro-title" data-translate="introTitle">Why Khiva is unforgettable</h2>
+      <p id="intro-text" data-translate="introText">Khiva is one of the best-preserved historic cities in Central Asia. Its old town, Itchan Kala, is a UNESCO World Heritage site, surrounded by red clay walls and filled with palace courtyards, grand mosques, and atmospheric bazaars.</p>
     </section>
 
-    <!-- WEATHER WIDGET - IMPROVED -->
-    <section class="weather-widget" id="weatherWidget">
-      <div class="weather-left">
-        <span id="weather-icon">🌤️</span>
-        <div>
-          <div class="weather-city" id="weather-city">Khiva</div>
-          <div class="weather-country" id="weather-country">Uzbekistan</div>
-        </div>
-      </div>
-      <div class="weather-center">
-        <div class="weather-main">
-          <span id="weather-temp" class="weather-temp">39°</span>
-          <span class="weather-feels-like" id="weather-feels-like">Feels like 36°</span>
-        </div>
-        <div id="weather-desc" class="weather-desc">Mainly clear</div>
-        <div class="weather-extra">
-          <span id="weather-wind">💨 12 km/h →</span>
-          <span id="weather-humidity">💧 45%</span>
-          <span id="weather-pressure">📊 1012 hPa</span>
-        </div>
-      </div>
-      <div class="weather-right">
-        <div>
-          <div class="weather-label">↓</div>
-          <div id="weather-min" class="weather-value">25°</div>
-        </div>
-        <div>
-          <div class="weather-label">↑</div>
-          <div id="weather-max" class="weather-value">41°</div>
-        </div>
-        <div>
-          <div class="weather-label">🌅</div>
-          <div id="weather-sunrise" class="weather-value">05:30</div>
-        </div>
-        <div>
-          <div class="weather-label">🌇</div>
-          <div id="weather-sunset" class="weather-value">20:15</div>
-        </div>
-      </div>
-    </section>
+   <!-- WEATHER -->
+<section class="weather-widget" id="weatherWidget">
+  <div class="weather-left">
+    <span id="weather-icon">🌤️</span>
+    <div>
+      <div class="weather-city" id="weather-city">Khiva</div>
+      <div class="weather-country" id="weather-country">Uzbekistan</div>
+    </div>
+  </div>
+  <div class="weather-center">
+    <div class="weather-main">
+      <span id="weather-temp" class="weather-temp">--°</span>
+      <span class="weather-feels-like" id="weather-feels-like">
+        <span data-translate="weatherFeelsLike">Feels like</span> <span id="weather-feels-temp">--°</span>
+      </span>
+    </div>
+    <div id="weather-desc" class="weather-desc" data-translate="weatherLoading">Loading...</div>
+    <div class="weather-extra">
+      <span id="weather-wind">💨 <span data-translate="weatherWind">Wind</span> <span id="weather-wind-speed">--</span> <span data-translate="weatherUnit">km/h</span></span>
+      <span id="weather-humidity">💧 <span data-translate="weatherHumidity">Humidity</span> <span id="weather-humidity-value">--%</span></span>
+    </div>
+    <p style="text-align: center; font-size: 0.75rem; color: #555; margin-top: 0.8rem;" data-translate="whenWeatherProblem">If there will be any problems with the weather, please update the page.</p>
+  </div>
+  <div class="weather-right">
+    <div>
+      <div class="weather-label" data-translate="weatherMin">↓</div>
+      <div id="weather-min" class="weather-value">--°</div>
+    </div>
+    <div>
+      <div class="weather-label" data-translate="weatherMax">↑</div>
+      <div id="weather-max" class="weather-value">--°</div>
+    </div>
+  </div>
+</section>
+
+    <!-- 5-DAY WEATHER FORECAST -->
+<section class="forecast-section scroll-reveal">
+  <h3 class="forecast-title" data-translate="forecastTitle">5-Day Forecast</h3>
+  <div class="forecast-grid" id="forecastGrid">
+    <!-- Days will be inserted by JavaScript -->
+  </div>
+</section>
 
     <!-- STATS -->
     <section class="stats-section">
       <div class="stat-card glass-shine stat-hover">
-        <div class="stat-content">
-          <div class="stat-number">50+</div>
-          <div class="stat-label" data-translate="stat1">Historic Monuments</div>
-        </div>
-        <div class="stat-image">
-          <img src="https://picsum.photos/seed/monument/400/300" alt="Historic Monuments" loading="lazy" />
-        </div>
+        <div class="stat-content"><div class="stat-number">10+</div><div class="stat-label" data-translate="stat1">Major Landmarks</div></div>
+        <div class="stat-image"><img src="images/majot monuments.png" alt="Monuments" loading="lazy" /></div>
       </div>
       <div class="stat-card glass-shine stat-hover">
-        <div class="stat-content">
-          <div class="stat-number">200+</div>
-          <div class="stat-label" data-translate="stat2">Wooden Pillars</div>
-        </div>
-        <div class="stat-image">
-          <img src="https://picsum.photos/seed/pillars/400/300" alt="Wooden Pillars" loading="lazy" />
-        </div>
+        <div class="stat-content"><div class="stat-number">1500+</div><div class="stat-label" data-translate="stat2">Years of Silk Road Trade</div></div>
+        <div class="stat-image"><img src="images/silk road.png" alt="Pillars" loading="lazy" /></div>
       </div>
       <div class="stat-card glass-shine stat-hover">
-        <div class="stat-content">
-          <div class="stat-number">60+</div>
-          <div class="stat-label" data-translate="stat3">Monuments Inside Walls</div>
-        </div>
-        <div class="stat-image">
-          <img src="https://picsum.photos/seed/walls/400/300" alt="Monuments Inside Walls" loading="lazy" />
-        </div>
+        <div class="stat-content"><div class="stat-number">300+</div><div class="stat-label" data-translate="stat3">Days of Sunshine per Year</div></div>
+        <div class="stat-image"><img src="images/Days of sunshine'.png" alt="Walls" loading="lazy" /></div>
       </div>
       <div class="stat-card glass-shine stat-hover">
-        <div class="stat-content">
-          <div class="stat-number">1000+</div>
-          <div class="stat-label" data-translate="stat4">Years of History</div>
-        </div>
-        <div class="stat-image">
-          <img src="https://picsum.photos/seed/history/400/300" alt="Years of History" loading="lazy" />
-        </div>
+        <div class="stat-content"><div class="stat-number">2500+</div><div class="stat-label" data-translate="stat4">Years of History</div></div>
+        <div class="stat-image"><img src="images/history.png" alt="History" loading="lazy" /></div>
       </div>
     </section>
 
-    <!-- KEY FEATURES - Landmarks inside Itchan Kala -->
-    <section class="key-features section" id="features">
-      <h2 class="section-title" id="features-title">✨ Landmarks of Itchan Kala</h2>
-      <div class="features-grid">
+        <!-- TOP PLACES TO VISIT -->
+    <section class="things-section" id="things">
+      <div class="section-title"><h2 data-translate="thingsTitle">🏛️ Top Places to Visit in Khiva</h2></div>
+      <div class="things-grid">
         
-        <div class="feature-card reveal glass-shine feature-hover">
-          <div class="feature-image-wrapper">
-            <div class="feature-placeholder" style="width:100%; height:220px; background: linear-gradient(135deg, #c47b2c, #8b5a2b); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white; border-radius: 16px 16px 0 0;">
-              🏛️
-            </div>
-            <div class="feature-icon-overlay">🏛️</div>
+        <!-- Card 1: Itchan Kala -->
+        <div class="things-card reveal glass-shine">
+          <div class="things-image">
+            <img src="images/itchan-kala.png" alt="Itchan Kala" loading="lazy" />
           </div>
-          <div class="feature-content">
-            <h3 data-translate="feature1Title">Itchan Kala</h3>
-            <p data-translate="feature1Text">The historic inner city containing more than 50 historic monuments and hundreds of traditional dwellings.</p>
-          </div>
-        </div>
-
-        <div class="feature-card reveal glass-shine feature-hover">
-          <div class="feature-image-wrapper">
-            <div class="feature-placeholder" style="width:100%; height:220px; background: linear-gradient(135deg, #2a9d8f, #1a6b5a); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white; border-radius: 16px 16px 0 0;">
-              🕌
-            </div>
-            <div class="feature-icon-overlay">🕌</div>
-          </div>
-          <div class="feature-content">
-            <h3 data-translate="feature2Title">Kalta Minor Minaret</h3>
-            <p data-translate="feature2Text">A striking, turquoise-tiled minaret that remains unfinished but stands as one of the most iconic symbols of the city.</p>
+          <div class="things-content">
+            <h3 data-translate="things1Title">Itchan Kala</h3>
+            <p data-translate="things1Text">Explore the UNESCO-listed inner city with 50+ monuments, madrassahs, and ancient streets.</p>
+            <div class="things-location">📍 <span data-translate="things1Loc">Old City, Khiva</span></div>
+            <a href="Itchan Kala.html" class="things-link" data-translate="learnMore">Learn More →</a>
           </div>
         </div>
 
-        <div class="feature-card reveal glass-shine feature-hover">
-          <div class="feature-image-wrapper">
-            <div class="feature-placeholder" style="width:100%; height:220px; background: linear-gradient(135deg, #e76f51, #b8533a); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white; border-radius: 16px 16px 0 0;">
-              🌄
-            </div>
-            <div class="feature-icon-overlay">🌄</div>
+        <!-- Card 2: Arda Khiva -->
+        <div class="things-card reveal glass-shine">
+          <div class="things-image">
+            <img src="images/arda-khiva.png" alt="Arda Khiva" loading="lazy" />
           </div>
-          <div class="feature-content">
-            <h3 data-translate="feature3Title">Islam Khodja Complex</h3>
-            <p data-translate="feature3Text">Features the city's tallest minaret, offering panoramic views of the entire oasis for those who climb its narrow steps.</p>
+          <div class="things-content">
+            <h3 data-translate="things2Title">Arda Khiva</h3>
+            <p data-translate="things2Text">A 25-hectare entertainment complex with water park, amphitheater, gondola rides, and an oriental bazaar.</p>
+            <div class="things-location">📍 <span data-translate="things2Loc">North of Khiva, 3km from Itchan Kala</span></div>
           </div>
         </div>
 
-        <div class="feature-card reveal glass-shine feature-hover">
-          <div class="feature-image-wrapper">
-            <div class="feature-placeholder" style="width:100%; height:220px; background: linear-gradient(135deg, #6d597a, #4a3a56); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white; border-radius: 16px 16px 0 0;">
-              🕊️
-            </div>
-            <div class="feature-icon-overlay">🕊️</div>
+        <!-- Card 3: Lokomotiv Park -->
+        <div class="things-card reveal glass-shine">
+          <div class="things-image">
+            <img src="images/lokomotiv-park.png" alt="Lokomotiv Park" loading="lazy" />
           </div>
-          <div class="feature-content">
-            <h3 data-translate="feature4Title">Juma Mosque</h3>
-            <p data-translate="feature4Text">A unique 10th-century mosque known for its large prayer hall supported by over 200 beautifully carved wooden pillars.</p>
+          <div class="things-content">
+            <h3 data-translate="things3Title">Lokomotiv Park</h3>
+            <p data-translate="things3Text">A peaceful recreation park with an artificial lake, musical fountains, an amphitheater, and beautiful gardens.</p>
+            <div class="things-location">📍 <span data-translate="things3Loc">Inside Khiva, near the Train Station</span></div>
+          </div>
+        </div>
+
+        <!-- Card 4: WWII Memorial Statue -->
+        <div class="things-card reveal glass-shine">
+          <div class="things-image">
+            <img src="images/wwii-statue.png" alt="WWII Memorial Statue" loading="lazy" />
+          </div>
+          <div class="things-content">
+            <h3 data-translate="things4Title">WWII Memorial Statue</h3>
+            <p data-translate="things4Text">A moving memorial dedicated to WWII heroes, located near Flora Restaurant in the heart of Khiva.</p>
+            <div class="things-location">📍 <span data-translate="things4Loc">Near Flora Restaurant, Khiva</span></div>
           </div>
         </div>
 
       </div>
     </section>
+
+
+ 
 
     <!-- STORY -->
     <section class="story section">
-      <div class="reveal">
-        <h2 id="story-title">Hidden stories and cultural charm</h2>
-        <p id="story-text">Every corner of Khiva carries a story. Caravanserais once welcomed traders from China, Persia, and Europe. Madrasahs taught poetry, astronomy, and religion. The city retains the rhythm of daily life, with craftsmen, cafes, and musicians keeping tradition alive.</p>
-      </div>
-    </section>
+  <h2 id="story-title" data-translate="storyTitle">Hidden stories and cultural charm</h2>
+  <p id="story-text" data-translate="storyText">Every corner of Khiva carries a story. Caravanserais once welcomed traders from China, Persia, and Europe. Madrasahs taught poetry, astronomy, and religion. The city retains the rhythm of daily life, with craftsmen, cafes, and musicians keeping tradition alive.</p>
+</section>
 
-    <!-- AROUND KHIVA SECTION (NEW) -->
-    <section class="around-khiva section" id="around">
-      <h2 class="section-title" data-translate="aroundTitle">📍 Around Khiva</h2>
-      <div class="around-grid">
-        
-        <div class="around-card reveal glass-shine">
-          <div class="around-image" style="background: linear-gradient(135deg, #c47b2c, #8b5a2b); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; height: 180px; border-radius: 16px 16px 0 0;">
-            🏜️
-          </div>
-          <div class="around-content">
-            <h3 data-translate="around1Title">Desert Safari</h3>
-            <p data-translate="around1Text">Experience the vast Kyzylkum Desert with camel rides and stunning sunset views just outside Khiva.</p>
-            <div class="around-location">📍 <span data-translate="around1Loc">Kyzylkum Desert, 30km from Khiva</span></div>
-          </div>
-        </div>
 
-        <div class="around-card reveal glass-shine">
-          <div class="around-image" style="background: linear-gradient(135deg, #2a9d8f, #1a6b5a); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; height: 180px; border-radius: 16px 16px 0 0;">
-            🏰
-          </div>
-          <div class="around-content">
-            <h3 data-translate="around2Title">Ancient Fortresses</h3>
-            <p data-translate="around2Text">Visit the ruins of Toprak-Kala and Ayaz-Kala, ancient fortresses that once guarded the Silk Road.</p>
-            <div class="around-location">📍 <span data-translate="around2Loc">Toprak-Kala, 60km from Khiva</span></div>
-          </div>
-        </div>
-
-        <div class="around-card reveal glass-shine">
-          <div class="around-image" style="background: linear-gradient(135deg, #e76f51, #b8533a); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; height: 180px; border-radius: 16px 16px 0 0;">
-            🏛️
-          </div>
-          <div class="around-content">
-            <h3 data-translate="around3Title">Nuratau Mountains</h3>
-            <p data-translate="around3Text">Discover the scenic mountain range with ancient petroglyphs, hiking trails, and traditional villages.</p>
-            <div class="around-location">📍 <span data-translate="around3Loc">Nuratau Mountains, 200km from Khiva</span></div>
-          </div>
-        </div>
-
-        <div class="around-card reveal glass-shine">
-          <div class="around-image" style="background: linear-gradient(135deg, #6d597a, #4a3a56); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; height: 180px; border-radius: 16px 16px 0 0;">
-            🧵
-          </div>
-          <div class="around-content">
-            <h3 data-translate="around4Title">Silk Carpet Workshop</h3>
-            <p data-translate="around4Text">Visit a traditional carpet workshop in the village of Bogot, where silk carpets are woven by hand.</p>
-            <div class="around-location">📍 <span data-translate="around4Loc">Bogot Village, 20km from Khiva</span></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MAP SECTION (NEW) -->
-    <section class="map-section section reveal" id="map">
-      <h2 class="section-title" data-translate="mapTitle">🗺️ Find Khiva on the Map</h2>
-      <div class="map-container glass-shine">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d765.9!2d60.3593!3d41.3775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41f8f4c0c0c0c0c0%3A0x0!2zNDHCsDIyJzM5LjAiTiA2MMKwMjEnMzMuMCJF!5e0!3m2!1sen!2s!4v1620000000000" 
-          width="100%" 
-          height="400" 
-          style="border:0; border-radius: 16px;" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
-
-    <section class="grid places section" id="places">
+    <!-- PLACES -->
+    <section class="places section" id="places">
       <article class="reveal">
         <h3 data-translate="place1Title">Tash Hauli Palace</h3>
         <p data-translate="place1Text">Known as the "Stone Palace," Tash Hauli is decorated with intricate stucco, frescoes, and spectacular carved ceilings.</p>
@@ -298,47 +207,50 @@
       </article>
     </section>
 
-    <section class="info-panel section reveal glass-shine" id="tips">
-      <div>
-        <h2 id="tips-title">📍 Find Itchan Kala</h2>
-        <p class="info-text" id="tips-text">The West Gate (Ota Darvoza) is the main entrance to the historic inner city.</p>
-        <div class="map-buttons">
-          <a href="https://maps.app.goo.gl/1JhWpeUK3Cczdgig8" target="_blank" rel="noopener noreferrer" class="map-btn google" data-translate="googleMaps">🗺️ Google Maps</a>
-          <a href="https://yandex.uz/maps/-/CTAXVXMJ" target="_blank" rel="noopener noreferrer" class="map-btn yandex" data-translate="yandexMaps">🗺️ Yandex Maps</a>
+    <!-- ===== INTERACTIVE MAP ===== -->
+    <section class="map-section section" id="map">
+      <h2 class="section-title" data-translate="mapTitle">📍 Find Khiva on the Map</h2>
+      <div class="map-container glass-shine">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3062.8!2d60.3593!3d41.3775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41f8f4c0c0c0c0c0%3A0x0!2zNDHCsDIyJzM5LjAiTiA2MMKwMjEnMzMuMCJF!5e0!3m2!1sen!2s!4v1620000000000" 
+          width="100%" 
+          height="400" 
+          style="border:0; border-radius: 16px; background: #e8e0d8;" 
+          allowfullscreen="" 
+          loading="lazy"
+          title="Khiva map">
+        </iframe>
+        <div style="text-align: center; margin-top: 1rem;">
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <a href="https://www.google.com/maps/place/Khiva,+Uzbekistan/@41.3775,60.3593,13z/" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="map-btn google"
+   data-translate="googleMaps">
+  🗺️ Open in Google Maps
+</a>
+<a href="https://yandex.uz/maps/-/CTUs7R1L" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="map-btn yandex"
+   data-translate="yandexMaps">
+  🗺️ Open in Yandex Maps
+</a>
+            
+          </div>
+          <p style="font-size: 0.85rem; color: #555; margin: 0;" data-translate="mapRecommend">* Recommended to open in any of these maps</p>
         </div>
-        <h2 class="tips-title" id="tips-subtitle">Quick tips for visitors</h2>
-        <ul>
-          <li data-translate="tip1">Best time to visit: spring and autumn, when the weather is mild.</li>
-          <li data-translate="tip2">Carry cash for small shops and tea houses inside Itchan Kala.</li>
-          <li data-translate="tip3">Climb the minarets for sweeping views of the ancient city.</li>
-          <li data-translate="tip4">Leave time to explore at dusk, when the lights highlight the carved facades.</li>
-        </ul>
       </div>
-    </section>
+       </section>
   </main>
 
   <footer>
-    <p id="footer-text">Khiva city website • Built to celebrate the historic heart of Uzbekistan.</p>
+    <p id="footer-text" data-translate="footer">Khiva city website • Built to celebrate the historic heart of Uzbekistan.</p>
+    <p id="footer-text2" data-translate="footertext">Made by a teenager from this awesome city, Sultanov Sulaymon</p>
   </footer>
 
   <a href="#home" class="back-to-top" aria-label="Back to top">↑</a>
 
-  <script>
-    function sharePage() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Khiva - Jewel of the Silk Road',
-          text: 'Discover the ancient city of Khiva, Uzbekistan!',
-          url: window.location.href
-        }).catch(() => {});
-      } else {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          alert('Link copied to clipboard! Share it with your friends.');
-        }).catch(() => {
-          alert('Share this page: ' + window.location.href);
-        });
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
