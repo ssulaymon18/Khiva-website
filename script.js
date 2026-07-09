@@ -149,6 +149,7 @@ var translations = {
     rainShowers: 'Rain showers', lightSnowShowers: 'Light snow showers', heavySnowShowers: 'Heavy snow showers',
     thunderstorm: 'Thunderstorm', heavyThunderstorm: 'Heavy thunderstorm',
     whenWeatherProblem: 'If there will be any problems with the weather, please update the page.',
+    footertext2: 'Contact: sultanov.sulaymon18@gmail.com. For feedback or improvements, feel free to reach out!',
   },
   uz: {
     home: 'Bosh sahifa', things: 'Qiladigan ishlar', features: 'Xususiyatlar', places: 'Joylar', map: 'Xarita', tips: 'Maslahatlar',
@@ -200,6 +201,7 @@ var translations = {
     rainShowers: 'Yomg\'ir shamoli', lightSnowShowers: 'Yengil qor shamoli', heavySnowShowers: 'Kuchli qor shamol',
     thunderstorm: 'Chaqnama bilan yomg\'ir', heavyThunderstorm: 'Kuchli chaqnama bilan yomg\'ir',
     whenWeatherProblem: 'Agar ob-havoda muammolar bo\'lsa, iltimos, sahifani yangilang.',
+    footertext2: 'Bog\'lanish: sultanov.sulaymon18@gmail.com. Agar fikr-mulohaza yoki takomillashtirish bo\'lsa, bemalol murojaat qiling!',
   },
   ru: {
     home: 'Главная', things: 'Чем заняться', features: 'Особенности', places: 'Места', map: 'Карта', tips: 'Советы',
@@ -251,6 +253,7 @@ var translations = {
     rainShowers: 'Ливневые дожди', lightSnowShowers: 'Небольшие снежные ливни', heavySnowShowers: 'Сильные снежные ливни',
     thunderstorm: 'Гроза', heavyThunderstorm: 'Сильная гроза',
     whenWeatherProblem: 'Если возникнут проблемы с погодой, пожалуйста, обновите страницу.',
+    footertext2: 'Контакт: sultanov.sulaymon18@gmail.com. Для обратной связи или улучшений, пожалуйста, свяжитесь со мной!'
   }
 };
 
