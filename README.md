@@ -32,7 +32,7 @@ This project is built using pure **HTML5, CSS3, and JavaScript**, maximizing per
 
 | Historic Vistas | Travel Planning |
 |---|---|
-| ![Khiva Hero](./images/khiva-hero.png) | ![Itchan Kala](./images/itchan-kala.png) |
+| ![Khiva Hero](./images/days-sunshine.png) | ![Itchan Kala](./images/itchan-kala.png) |
 
 ---
 
