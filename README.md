@@ -37,4 +37,5 @@ This project is built using pure **HTML5, CSS3, and JavaScript**, maximizing per
 ---
 
 🛠️ Made and developed with heart by **Sulaymon** (`ssulaymon18`).
+
 Feel free to contact: email [sultanov.sulaymon18@gmail.com] or slack [ssulaymon18]
