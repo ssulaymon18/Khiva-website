@@ -30,7 +30,7 @@ This project is built using pure **HTML5, CSS3, and JavaScript**, maximizing per
 ## 📸 Sneak Peek & Media
 
 
-| Historic Vistas | Travel Planning |
+| Itchan Kala with sunshine | Kalta Minor's area |
 |---|---|
 | ![Khiva Hero](./images/days-sunshine.png) | ![Itchan Kala](./images/itchan-kala.png) |
 
