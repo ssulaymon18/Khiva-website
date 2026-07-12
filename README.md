@@ -29,7 +29,6 @@ This project is built using pure **HTML5, CSS3, and JavaScript**, maximizing per
 
 ## 📸 Sneak Peek & Media
 
-*Add a few screenshots below to show off your UI directly in the repository!*
 
 | Historic Vistas | Travel Planning |
 |---|---|
@@ -37,4 +36,4 @@ This project is built using pure **HTML5, CSS3, and JavaScript**, maximizing per
 
 ---
 
-🛠️ Developed with 💙 by **Sulaymon** (`ssulaymon18`).
+🛠️ Developed and made with heart by **Sulaymon** (`ssulaymon18`).
