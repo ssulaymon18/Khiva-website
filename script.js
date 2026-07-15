@@ -638,7 +638,6 @@ document.addEventListener('DOMContentLoaded', function() {
       submitBtn.textContent = '⏳ Sending...';
       submitBtn.disabled = true;
       
-      // Get form data
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var subject = document.getElementById('subject').value;
@@ -651,7 +650,6 @@ document.addEventListener('DOMContentLoaded', function() {
         message: message
       };
       
-      // Make sure to replace these with YOUR actual IDs
       fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
