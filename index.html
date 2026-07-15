@@ -22,6 +22,7 @@
           <span class="nav-separator">|</span>
           <a href="Itchan Kala.html" data-translate="itchanKala">Itchan Kala</a>
           <a href="visit.html" data-translate="visit">Plan Your Visit</a>
+          <a href="#contact" data-translate="contact">Contact</a>
         </div>
         <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
         <button class="lang-btn" data-lang="uz">🇺🇿 UZ</button>
@@ -243,6 +244,34 @@
       </div>
        </section>
   </main>
+
+        <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-section section" id="contact">
+      <div class="contact-container">
+        <h2 class="contact-title" data-translate="contactTitle">📬 Get in Touch</h2>
+        <p class="contact-sub" data-translate="contactSub">Have questions, feedback, or suggestions? I'd love to hear from you!</p>
+        
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqaprgdk" method="POST">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required data-translate="namePlaceholder" />
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Your Email" required data-translate="emailPlaceholder" />
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" name="subject" placeholder="Subject" required data-translate="subjectPlaceholder" />
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" placeholder="Your Message..." required data-translate="messagePlaceholder"></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-translate="sendBtn">✉️ Send Message</button>
+        </form>
+        
+        <div id="formSuccess" style="display: none; text-align: center; padding: 2rem; color: #b45a2e; font-weight: 500; background: rgba(180,90,46,0.05); border-radius: 16px; border: 1px solid rgba(180,90,46,0.1);">
+          ✅ <span data-translate="successMsg">Your message has been sent! I'll get back to you soon.</span>
+        </div>
+      </div>
+    </section>
 
   <footer>
     <p id="footer-text" data-translate="footer">Khiva city website • Built to celebrate the historic heart of Uzbekistan.</p>

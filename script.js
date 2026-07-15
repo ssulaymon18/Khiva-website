@@ -150,6 +150,14 @@ var translations = {
     thunderstorm: 'Thunderstorm', heavyThunderstorm: 'Heavy thunderstorm',
     whenWeatherProblem: 'If there will be any problems with the weather, please update the page.',
     footertext2: 'Contact: sultanov.sulaymon18@gmail.com. For feedback or improvements, feel free to reach out!',
+    contactTitle: '📬 Get in Touch',
+contactSub: 'Have questions, feedback, or suggestions? I\'d love to hear from you!',
+namePlaceholder: 'Your Name',
+emailPlaceholder: 'Your Email',
+subjectPlaceholder: 'Subject',
+messagePlaceholder: 'Your Message...',
+sendBtn: '✉️ Send Message',
+successMsg: 'Your message has been sent! I\'ll get back to you soon.',
   },
   uz: {
     home: 'Bosh sahifa', things: 'Qiladigan ishlar', features: 'Xususiyatlar', places: 'Joylar', map: 'Xarita', tips: 'Maslahatlar',
@@ -202,6 +210,14 @@ var translations = {
     thunderstorm: 'Chaqnama bilan yomg\'ir', heavyThunderstorm: 'Kuchli chaqnama bilan yomg\'ir',
     whenWeatherProblem: 'Agar ob-havoda muammolar bo\'lsa, iltimos, sahifani yangilang.',
     footertext2: 'Bog\'lanish: sultanov.sulaymon18@gmail.com. Agar fikr-mulohaza yoki takomillashtirish bo\'lsa, bemalol murojaat qiling!',
+    contactTitle: '📬 Aloqaga chiqing',
+contactSub: 'Savolingiz, fikringiz yoki taklifingiz bormi? Men sizdan eshitishni istardim!',
+namePlaceholder: 'Ismingiz',
+emailPlaceholder: 'Email manzilingiz',
+subjectPlaceholder: 'Mavzu',
+messagePlaceholder: 'Xabaringiz...',
+sendBtn: '✉️ Xabar yuborish',
+successMsg: 'Xabaringiz yuborildi! Tez orada javob beraman.',
   },
   ru: {
     home: 'Главная', things: 'Чем заняться', features: 'Особенности', places: 'Места', map: 'Карта', tips: 'Советы',
@@ -254,6 +270,14 @@ var translations = {
     thunderstorm: 'Гроза', heavyThunderstorm: 'Сильная гроза',
     whenWeatherProblem: 'Если возникнут проблемы с погодой, пожалуйста, обновите страницу.',
     footertext2: 'Контакт: sultanov.sulaymon18@gmail.com. Для обратной связи или улучшений, пожалуйста, свяжитесь со мной!'
+    contactTitle: '📬 Свяжитесь со мной',
+contactSub: 'Есть вопросы, отзывы или предложения? Я буду рад услышать вас!',
+namePlaceholder: 'Ваше имя',
+emailPlaceholder: 'Ваш Email',
+subjectPlaceholder: 'Тема',
+messagePlaceholder: 'Ваше сообщение...',
+sendBtn: '✉️ Отправить',
+successMsg: 'Ваше сообщение отправлено! Я свяжусь с вами в ближайшее время.',
   }
 };
 
@@ -598,4 +622,61 @@ window.addEventListener('beforeunload', function() {
 // Scroll to top on page load
 window.addEventListener('load', function() {
   window.scrollTo(0, 0);
+});
+
+// ===== CONTACT FORM (EmailJS) =====
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('contactForm');
+  var successDiv = document.getElementById('formSuccess');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var submitBtn = form.querySelector('.btn-submit');
+      var originalText = submitBtn.textContent;
+      submitBtn.textContent = '⏳ Sending...';
+      submitBtn.disabled = true;
+      
+      // Get form data
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var subject = document.getElementById('subject').value;
+      var message = document.getElementById('message').value;
+      
+      var templateParams = {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message
+      };
+      
+      // Make sure to replace these with YOUR actual IDs
+      fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          service_id: 'service_55v18ui',
+          template_id: 'template_pnk1qh',
+          user_id: '8c_713blVW6Qvqdtv',
+          template_params: templateParams
+        })
+      })
+      .then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          successDiv.style.display = 'block';
+        } else {
+          throw new Error('Network error');
+        }
+      })
+      .catch(function(error) {
+        alert('Oops! Something went wrong. Please try again.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+  }
 });
