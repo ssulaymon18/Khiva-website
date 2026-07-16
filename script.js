@@ -151,13 +151,16 @@ var translations = {
     whenWeatherProblem: 'If there will be any problems with the weather, please update the page.',
     footertext2: 'Contact: sultanov.sulaymon18@gmail.com. For feedback or improvements, feel free to reach out!',
     contactTitle: '📬 Get in Touch',
-contactSub: 'Have questions, feedback, or suggestions? I\'d love to hear from you!',
 namePlaceholder: 'Your Name',
 emailPlaceholder: 'Your Email',
 subjectPlaceholder: 'Subject',
 messagePlaceholder: 'Your Message...',
 sendBtn: '✉️ Send Message',
 successMsg: 'Your message has been sent! I\'ll get back to you soon.',
+contactSub: 'Connect with me on social media or send me an email — I\'d love to hear from you!',
+emailLabel: 'Email',
+githubLabel: 'GitHub',
+slackLabel: 'Slack',
   },
   uz: {
     home: 'Bosh sahifa', things: 'Qiladigan ishlar', features: 'Xususiyatlar', places: 'Joylar', map: 'Xarita', tips: 'Maslahatlar',
@@ -211,13 +214,16 @@ successMsg: 'Your message has been sent! I\'ll get back to you soon.',
     whenWeatherProblem: 'Agar ob-havoda muammolar bo\'lsa, iltimos, sahifani yangilang.',
     footertext2: 'Bog\'lanish: sultanov.sulaymon18@gmail.com. Agar fikr-mulohaza yoki takomillashtirish bo\'lsa, bemalol murojaat qiling!',
     contactTitle: '📬 Aloqaga chiqing',
-contactSub: 'Savolingiz, fikringiz yoki taklifingiz bormi? Men sizdan eshitishni istardim!',
 namePlaceholder: 'Ismingiz',
 emailPlaceholder: 'Email manzilingiz',
 subjectPlaceholder: 'Mavzu',
 messagePlaceholder: 'Xabaringiz...',
 sendBtn: '✉️ Xabar yuborish',
 successMsg: 'Xabaringiz yuborildi! Tez orada javob beraman.',
+contactSub: 'Ijtimoiy tarmoqlarda men bilan bog\'laning yoki elektron pochta orqali xabar yuboring — men sizdan eshitishni istardim!',
+emailLabel: 'Email',
+githubLabel: 'GitHub',
+slackLabel: 'Slack',
   },
   ru: {
     home: 'Главная', things: 'Чем заняться', features: 'Особенности', places: 'Места', map: 'Карта', tips: 'Советы',
@@ -269,15 +275,18 @@ successMsg: 'Xabaringiz yuborildi! Tez orada javob beraman.',
     rainShowers: 'Ливневые дожди', lightSnowShowers: 'Небольшие снежные ливни', heavySnowShowers: 'Сильные снежные ливни',
     thunderstorm: 'Гроза', heavyThunderstorm: 'Сильная гроза',
     whenWeatherProblem: 'Если возникнут проблемы с погодой, пожалуйста, обновите страницу.',
-    footertext2: 'Контакт: sultanov.sulaymon18@gmail.com. Для обратной связи или улучшений, пожалуйста, свяжитесь со мной!'
+    footertext2: 'Контакт: sultanov.sulaymon18@gmail.com. Для обратной связи или улучшений, пожалуйста, свяжитесь со мной!',
     contactTitle: '📬 Свяжитесь со мной',
-contactSub: 'Есть вопросы, отзывы или предложения? Я буду рад услышать вас!',
 namePlaceholder: 'Ваше имя',
 emailPlaceholder: 'Ваш Email',
 subjectPlaceholder: 'Тема',
 messagePlaceholder: 'Ваше сообщение...',
 sendBtn: '✉️ Отправить',
 successMsg: 'Ваше сообщение отправлено! Я свяжусь с вами в ближайшее время.',
+contactSub: 'Свяжитесь со мной в социальных сетях или отправьте письмо — я буду рад услышать вас!',
+emailLabel: 'Email',
+githubLabel: 'GitHub',
+slackLabel: 'Slack',
   }
 };
 
@@ -628,28 +637,34 @@ window.addEventListener('load', function() {
 document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('contactForm');
   var successDiv = document.getElementById('formSuccess');
-  
+
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      var submitBtn = form.querySelector('.btn-submit');
+
+      var submitBtn = document.getElementById('sendBtn');
       var originalText = submitBtn.textContent;
+
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var subject = document.getElementById('subject').value.trim();
+      var message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields!');
+        return;
+      }
+
       submitBtn.textContent = '⏳ Sending...';
       submitBtn.disabled = true;
-      
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var subject = document.getElementById('subject').value;
-      var message = document.getElementById('message').value;
-      
+
       var templateParams = {
         from_name: name,
         from_email: email,
         subject: subject,
         message: message
       };
-      
+
       fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
@@ -665,16 +680,26 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(function(response) {
         if (response.ok) {
           form.style.display = 'none';
-          successDiv.style.display = 'block';
+          successDiv.classList.add('show');
         } else {
-          throw new Error('Network error');
+          return response.text().then(function(text) {
+            throw new Error('EmailJS error: ' + text);
+          });
         }
       })
       .catch(function(error) {
+        console.error('Error:', error);
         alert('Oops! Something went wrong. Please try again.');
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       });
     });
   }
+});
+
+// ===== PAGE LOAD SPEED =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Show content after everything loads
+  document.body.classList.remove('loading');
+  document.body.classList.add('loaded');
 });
